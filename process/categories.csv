@@ -1,0 +1,119 @@
+type,category
+AbstractMethod,
+AetherClassNotFound,dependencies
+ArtifactNotFound,dependencies
+CannotImport,file not found
+ClassCast,buildfile parsing/compilation
+ClassNotFound,
+CompilationFailed,Java compilation
+CustomMessageMissingMethod,buildfile parsing/compilation
+DependencyResolution,dependencies
+Exec,external program execution
+FileNotFound,file not found
+Gradle:,
+Gradle:javadoc,documentation generation
+Gradle:processResources,
+GroovyRuntime,
+IllegalArgument,configuration
+IllegalState,
+Internal,
+InvalidUserData,configuration
+IO,external program execution
+MavenExecution,dependencies
+MissingPath,file not found
+MissingProperty,configuration
+MissingResource,file not found
+ModelParse,buildfile parsing/compilation
+ModuleVersionNotFound,dependencies
+ModuleVersionResolve,dependencies
+MojoExecution:antlr3-maven-plugin,non-Java compilation
+MojoExecution:aspectj-maven-plugin,non-Java compilation
+MojoExecution:buildnumber-maven-plugin,version control integration
+MojoExecution:exec-maven-plugin,external program execution
+MojoExecution:git-commit-id-plugin,version control integration
+MojoExecution:grunt-maven-plugin,other build tool integration
+MojoExecution:gwt-maven-plugin,
+MojoExecution:jaxb2-maven-plugin,
+MojoExecution:jaxws-maven-plugin,
+MojoExecution:launch4j-maven-plugin,external program execution
+MojoExecution:launch4j-plugin,external program execution
+MojoExecution:license-maven-plugin,
+MojoExecution:liquibase-maven-plugin,external program execution
+MojoExecution:maven-antrun-plugin,other build tool integration
+MojoExecution:maven-compiler-plugin,Java compilation
+MojoExecution:maven-dependency-plugin,dependencies
+MojoExecution:maven-enforcer-plugin,wrong JDK version
+MojoExecution:maven-gpg-plugin,external program execution
+MojoExecution:maven-inherit-plugin,file not found
+MojoExecution:maven-jar-plugin,packaging
+MojoExecution:maven-javadoc-plugin,documentation generation
+MojoExecution:maven-plugin-plugin,dependencies
+MojoExecution:maven-resources-plugin,file not found
+MojoExecution:maven-scala-plugin,non-Java compilation
+MojoExecution:maven-war-plugin,packaging
+MojoExecution:rpm-maven-plugin,external program execution
+MojoExecution:scala-maven-plugin,external program execution
+MojoExecution:sql-maven-plugin,external program execution
+MojoFailure:frontend-maven-plugin,other build tool integration
+MojoFailure:maven-compiler-plugin,Java compilation
+MojoFailure:maven-surefire-plugin,
+MojoFailure:maven-thrift-plugin,external program execution
+MojoFailure:maven-toolchains-plugin,wrong JDK version
+MojoFailure:tycho-compiler-plugin,
+MultipleCompilationErrors,buildfile parsing/compilation
+NoClassDefFound,
+NullPointer,
+PluginApplication:bnd,configuration
+PluginApplication:fatjar,packaging
+PluginApplication:grgit,version control integration
+PluginApplication:JavaFXPlugin,configuration
+PluginApplication:nexus,other build tool integration
+PluginApplication:release,version control integration
+PluginApplication:ReleasePlugin,version control integration
+PluginApplication:RxJavaReleasePlugin,
+PluginApplication:ShadowJavaPlugin,packaging
+PluginContainer,dependencies
+PluginExecution:antlr4-maven-plugin,non-Java compilation
+PluginExecution:buildnumber-maven-plugin,version control integration
+PluginExecution:buildversion-plugin,version control integration
+PluginExecution:furnace-maven-plugin,dependencies
+PluginExecution:maven-plugin-plugin,
+PluginExecution:tycho-packaging-plugin,packaging
+PluginManager,dependencies
+PluginParameter,buildfile parsing/compilation
+PluginResolution,dependencies
+PluginVersionResolution,dependencies
+ProjectBuilding,
+RepositoryNotFound,dependencies
+Resolve,dependencies
+Target:-do-compile,Java compilation
+Target:-do-init,configuration
+Target:-init-check,configuration
+Target:-init-libraries,
+Target:-init-taskdefs,configuration
+Target:build,
+Target:build_jar,
+Target:build-jar,
+Target:build-project,Java compilation
+Target:check,configuration
+Target:classes,
+Target:clean,
+Target:compile,Java compilation
+Target:compile-import-shared,
+Target:download,
+Target:download-ant-contrib,dependencies
+Target:gen-cli-grammar,non-Java compilation
+Target:init,
+Target:ivy-resolve,dependencies
+Target:jar,
+Target:make,Java compilation
+Target:prep,
+Target:recompile,
+Target:register.custom.compilers,
+Target:resolve,dependencies
+Target:test,
+TaskdefNotFound,configuration
+UncheckedIO,file not found
+UnknownConfiguration,
+UnknownPlugin,
+UnresolvableModel,dependencies
