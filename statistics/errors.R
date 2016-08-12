@@ -2,7 +2,7 @@ plot_errors <- function(builds, column, filename, label) {
   errors <- prop.table(table(builds[, column])) * 100
   errors <- sort(errors, decreasing=T)
   
-  write.csv(errors, sprintf("tables/%s.csv", column))
+  write.csv(errors, sprintf("tables/%s.csv", filename))
   latex <- round(errors, 2)
   write.table(latex, sprintf("tables/%s.tex", filename),
     quote=F, sep=" & ", eol=" \\\\\n", col.names=F)
