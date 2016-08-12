@@ -1,6 +1,6 @@
 {
-  "name": "Build systems study",
-  "tagline": "A study of buildability using Java build tools",
-  "body": "This repository contains scripts of a study about Java software buildability.",
+  "name": "Build Tools Study",
+  "tagline": "A Quantitative Study of Java Software Buildability",
+  "body": "This repository contains scripts and other materials about a study of Java software buildability, submitted to [PLATEU 2016](http://2016.splashcon.org/track/plateau2016).\r\n\r\n## Replication\r\n\r\nTo execute build processes, pull the Docker image and run it:\r\n```\r\ndocker run -itv /root/build:/root/build quay.io/sulir/builds 1000\r\n```\r\nThe last argument represents the number of projects.\r\n\r\nTo process the results, download the [scripts](https://github.com/sulir/build-study/zipball/master) and run:\r\n```\r\n./results.sh /directory/with/results/\r\n```\r\n\r\n## Result files\r\n\r\nBoth unprocessed and processes [result files](files/results.zip) are also available for download. Log files are available upon request.",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
