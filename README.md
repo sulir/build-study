@@ -17,4 +17,4 @@ To process the results, download the [scripts](https://github.com/sulir/build-st
 
 ## Result files
 
-Both unprocessed and processes [result files](files/results.zip) are also available for download. Log files are available upon request.
+Both unprocessed and processes [result files](https://sulir.github.io/build-study/files/results.zip) are also available for download. Log files are available upon request.
