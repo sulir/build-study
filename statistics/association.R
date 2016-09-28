@@ -64,3 +64,14 @@ all_associations <- function(builds) {
   
   dev <- dev.off()
 }
+
+tool_properties <- function (builds) {
+  builds <- count_dates(builds, "created")
+  builds <- count_dates(builds, "pushed")
+  print(aggregate(builds[, c('created', 'pushed', 'in_files')], list(builds$tool), mean))
+  
+  builds <- builds[builds$status %in% F,]
+  maven <- builds[builds$tool == 'Maven', ]
+  dep <- maven[maven$category %in% 'dependencies', ]
+  cat(sprintf("\nFailed Maven builds caused by dep.: %s\n", to_percent(nrow(dep) / nrow(maven))))
+}

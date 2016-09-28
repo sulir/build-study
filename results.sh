@@ -13,5 +13,5 @@ cd ..
 
 for file in $1/figures/*.pdf ; do
   base=`basename $file`
-  gs -q -sFONTPATH=/usr/share/texmf/fonts/opentype/public/tex-gyre/ -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -o "../Pre-review/figures/$base" "$file"
+  gs -q -sFONTPATH=/usr/share/texmf/fonts/opentype/public/tex-gyre/ -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -o "../Post-review/figures/$base" "$file"
 done

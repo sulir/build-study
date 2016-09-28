@@ -11,7 +11,8 @@ plot_errors <- function(builds, column, filename, label) {
   par(mai=c(0.7, 3, 0, 0.2), mgp=c(2.2, 1, 0))
   label <- sprintf("Failure by %s [%%]", label)
   errors <- errors[row.names(errors) != 'uncategorized']
-  barplot(rev(head(errors, 15)), horiz=T, las=1, xlab=label)
+  row.names(errors) <- sprintf("%s %6s%%", row.names(errors), round(errors, 1))
+  barplot(rev(head(errors, 15)), horiz=T, las=1, xlab=label, xlim=c(0, 40))
   dev <- dev.off()
 }
 
