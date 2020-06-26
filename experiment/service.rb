@@ -3,7 +3,7 @@ require 'octokit'
 require_relative 'repository'
 
 class Service
-  ACCESS_TOKEN = 'b5981db81e3b356e2baea1dbe9e6f8726105ae38'
+  ACCESS_TOKEN = '20e0b799d236ec0dd76b24f255ee41d3a9d36e24'
   
   def initialize(log)
     @log = log
@@ -15,7 +15,7 @@ class Service
     loop do
       repo_name = @repo_list.pop
       repo = request do
-        @github.repo(repo_name, accept: 'application/vnd.github.drax-preview+json')
+        @github.repo(repo_name)
       end
       if repo && repo.forks > 0 && !repo.license.nil? && repo.license.name != 'Other'
         return Repository.from_response(repo) 
