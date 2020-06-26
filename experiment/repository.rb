@@ -18,7 +18,7 @@ class Repository < Struct.new(:name, :url, :stars, :forks, :created, :pushed)
     local = File.join(Experiment::BUILD_DIR, name.sub('/', '_'))
     FileUtils.makedirs(local)
     `curl -sL "#{url}?access_token=#{Service::ACCESS_TOKEN}"\
-     | tar -xzC "#{local}" --strip-components=1`
+     | tar -xzC "#{local}" --strip-components=1 --warning=no-timestamp`
     $?.exitstatus.zero? or raise "Download error"
     Project.new(self, local)
   end
