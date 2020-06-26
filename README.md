@@ -6,11 +6,11 @@ This repository contains scripts and other materials about a study of Java softw
 
 To execute build processes, pull the Docker image and run it:
 ```
-docker run -itv /root/build:/root/build quay.io/sulir/builds 1000
+docker run -itv /directory/with/results:/root/build quay.io/sulir/builds:2016 10000
 ```
-The last argument represents the number of projects.
+The last argument (10000) represents the number of projects.
 
-To process the results, download the [scripts](https://github.com/sulir/build-study/zipball/master) and run:
+To process the results, download the [scripts](https://github.com/sulir/build-study/archive/plateau-2016.zip) and run:
 ```
 ./results.sh /directory/with/results/
 ```
