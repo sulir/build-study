@@ -26,7 +26,10 @@ RUN curl http://tux.rainside.sk/apache/ant/binaries/apache-ant-1.10.8-bin.tar.gz
     | tar -xzC /opt && \
     ln -s /opt/apache-ivy-*/ivy-*.jar /opt/apache-ant-*/lib/
 
-RUN gem install agent octokit --no-document
+RUN gem install \
+    agent:0.12.0 \
+    octokit:4.18.0 \
+    --no-document
 
 EXPOSE 80
 VOLUME ["/root/build"]
