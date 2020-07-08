@@ -56,6 +56,7 @@ class Experiment
         result = project.build
         result.write(@csv)
         project.erase
+        erase_cache_if_disk_full
       end
     end
   end
@@ -74,6 +75,15 @@ class Experiment
   def create_empty(dir)
     FileUtils.makedirs(dir)
     FileUtils.rm_rf(Dir[File.join(dir, '*')])
+  end
+
+  def erase_cache_if_disk_full
+    free_megabytes = `df -m --output=avail #{Dir.home}`.lines[1].to_i
+    if free_megabytes < 4096
+      Dir.chdir(Dir.home) do
+        FileUtils.rm_rf(['.gradle', '.m2', '.ant', '.ivy2'])
+      end
+    end
   end
 end
 

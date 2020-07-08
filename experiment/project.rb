@@ -3,8 +3,8 @@ require_relative 'result'
 
 class Project
   TOOLS = [
-    ['Gradle', 'build.gradle', 'gradle clean assemble -s --console=plain'],
-    ['Maven', 'pom.xml', 'mvn clean package -DskipTests -B'],
+    ['Gradle', 'build.gradle', 'gradle clean assemble --no-daemon --stacktrace --console=plain'],
+    ['Maven', 'pom.xml', 'mvn clean package -DskipTests --batch-mode'],
     ['Ant', 'build.xml', 'ant clean; ant jar || ant war || ant dist || ant']]
   IGNORE = [
     ['**/*.java', 'import android.'],
