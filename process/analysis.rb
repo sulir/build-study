@@ -1,15 +1,14 @@
 #!/usr/bin/env ruby
 require 'csv'
-require_relative '../experiment/experiment'
 require_relative '../experiment/result'
 require_relative 'log'
 
 class Analysis
   def initialize(dir)
     @dir = dir
-    rows = CSV.read(File.join(@dir, Experiment::RESULTS_FILE), headers: true, converters: :all)
+    rows = CSV.read(File.join(@dir, 'results.csv'), headers: true, converters: :all)
     @results = rows.map { |row| Result.from_hash(row.to_h) }.sort_by(&:name)
-    @categories = CSV.read('categories.csv', headers: true).to_a.to_h
+    @categories = CSV.read(File.join(__dir__, 'categories.csv'), headers: true).to_a.to_h
   end
   
   def run

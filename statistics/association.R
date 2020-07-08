@@ -1,5 +1,5 @@
-library(DescTools)
 library(beanplot)
+library(DescTools)
 
 tool_bar_chart <- function(builds) {
   builds <- builds[!is.na(builds$status), ]

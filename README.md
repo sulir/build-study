@@ -10,7 +10,7 @@ docker run -itv /directory/with/results:/root/build quay.io/sulir/builds 10000
 ```
 The last argument (10000) represents the number of projects.
 
-To process the results, download the [scripts](https://github.com/sulir/build-study/zipball/master) and run:
+To process the results, Ruby and R is required. The necessary R packages can be installed by running `statistics/install-packages.R`. Then execute the result-processing script:
 ```
 ./results.sh /directory/with/results/
 ```

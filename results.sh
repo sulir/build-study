@@ -5,13 +5,13 @@ if [[ $# -eq 0 ]]; then
   exit
 fi
 
-cd process
-./analysis.rb $1
-cd ../statistics
+./process/analysis.rb $1
+
+cd statistics
 ./statistics.R $1
 cd ..
 
 for file in $1/figures/*.pdf ; do
-  base=`basename $file`
-  gs -q -sFONTPATH=/usr/share/texmf/fonts/opentype/public/tex-gyre/ -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -o "../Post-review/figures/$base" "$file"
+  gs -q -sFONTPATH=/usr/share/texmf/fonts/opentype/public/tex-gyre/ -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -o "$file.new" "$file"
+  mv "$file.new" "$file"
 done
