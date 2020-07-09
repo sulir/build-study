@@ -3,7 +3,8 @@ require_relative 'result'
 
 class Project
   TOOLS = [
-    ['Gradle', 'build.gradle', 'gradle clean assemble --no-daemon --stacktrace --console=plain'],
+    ['Gradle', 'build.gradle', 'GRADLE=gradle; [ -f gradlew ] && GRADLE="sh gradlew";' +
+      ' $GRADLE clean assemble --no-daemon -s --console=plain'],
     ['Maven', 'pom.xml', 'mvn clean package -DskipTests --batch-mode'],
     ['Ant', 'build.xml', 'ant clean; ant jar || ant war || ant dist || ant']]
   IGNORE = [
@@ -23,7 +24,8 @@ class Project
     ['IntelliJ IDEA', '**/.{idea,ipr}'],
     ['NetBeans', '**/nbproject'],
     ['Travis CI', '.travis.yml'],
-    ['Git submodules', '**/.gitmodules']]
+    ['Git submodules', '**/.gitmodules'],
+    ['Gradle Wrapper', 'gradlew']]
   attr_reader :repo, :input_files, :output_files
   
   def initialize(repo, dir)
