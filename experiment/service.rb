@@ -7,7 +7,7 @@ class Service
   
   def initialize(log)
     @log = log
-    @github = Octokit::Client.new(access_token: ACCESS_TOKEN, auto_paginate: true)
+    @github = Octokit::Client.new(access_token: ACCESS_TOKEN, auto_paginate: true, per_page: 100)
   end
   
   def random_repo
