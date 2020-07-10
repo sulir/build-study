@@ -27,26 +27,28 @@ class Service
   def repo_list
     repos = []
     Date.new(2008, 02, 27).upto(Date.today) do |date|
+      @log.puts("LIST\t" + date.to_s)
       query = "language:Java forks:>0 created:#{date}"
       result = request { @github.search_repos(query) }
-      @log.puts("Incomplete results! Date: " + date.to_s) if result.incomplete_results
+      @log.puts("ERROR\tIncomplete results") if result.incomplete_results
       repos += result.items.map(&:full_name)
     end
     repos.uniq
   end
   
   def request
-    loop do
-      begin
-        return yield
-      rescue Octokit::TooManyRequests
-        sleep @github.rate_limit.resets_in
-      rescue Octokit::ClientError
-        return
-      rescue => error
-        @log.puts error, error.backtrace
-        sleep 15 * 60
-      end
+    begin
+      return yield
+    rescue Octokit::TooManyRequests
+      sleep @github.rate_limit.resets_in
+      retry
+    rescue Octokit::ClientError => error
+      @log.puts error, error.backtrace
+      return
+    rescue => error
+      @log.puts error, error.backtrace
+      sleep 15 * 60
+      retry
     end
   end
 end
