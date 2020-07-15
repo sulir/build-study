@@ -10,7 +10,7 @@ RUN dnf install -y \
 
 ENV JAVA_HOME=/etc/alternatives/java_sdk
 
-RUN curl -L http://downloads.gradle-dn.com/distributions/gradle-6.5-bin.zip -o /tmp/gradle.zip && \
+RUN curl -L http://downloads.gradle-dn.com/distributions/gradle-6.5.1-bin.zip -o /tmp/gradle.zip && \
     unzip -q /tmp/gradle.zip -d /opt && \
     rm -f /tmp/gradle.zip && \
     ln -s /opt/gradle-*/bin/gradle /usr/bin/
