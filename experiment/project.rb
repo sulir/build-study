@@ -24,8 +24,7 @@ class Project
     ['IntelliJ IDEA', '**/.{idea,ipr}'],
     ['NetBeans', '**/nbproject'],
     ['Travis CI', '.travis.yml'],
-    ['Git submodules', '**/.gitmodules'],
-    ['Gradle Wrapper', 'gradlew']]
+    ['Git submodules', '**/.gitmodules']]
   attr_reader :repo, :input_files, :output_files
   
   def initialize(repo, dir)
