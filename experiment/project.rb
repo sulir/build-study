@@ -50,7 +50,7 @@ class Project
     return Result.from_build(self, nil) if tool.empty?
     command = TOOLS.find { |name, _| name == tool }[2]
     Dir.chdir(@dir) do
-      `timeout -k1m 1h unbuffer bash -c "#{command}" </dev/null >"#{log_path}" 2>&1`
+      `timeout -k1m 1h unbuffer bash -c '#{command}' </dev/null >'#{log_path}' 2>&1`
     end
     File.rename(log_path, log_path + ($?.exitstatus.zero? ? '.pass' : '.fail'))
     @output_files = file_list
