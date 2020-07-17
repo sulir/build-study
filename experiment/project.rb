@@ -3,8 +3,7 @@ require_relative 'result'
 
 class Project
   TOOLS = [
-    ['Gradle', 'build.gradle', 'GRADLE=gradle; [ -f gradlew ] && GRADLE="sh gradlew";' +
-      ' $GRADLE clean assemble --no-daemon -s --console=plain'],
+    ['Gradle', 'build.gradle', 'gradle clean assemble --no-daemon -s --console=plain'],
     ['Maven', 'pom.xml', 'mvn clean package -DskipTests --batch-mode'],
     ['Ant', 'build.xml', 'ant clean; ant jar || ant war || ant dist || ant']]
   IGNORE = [
