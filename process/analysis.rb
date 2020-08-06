@@ -12,7 +12,7 @@ class Analysis
   end
   
   def run
-    csv = CSV.open(File.join(@dir, 'analyzed.csv'), 'w+', headers: true)
+    csv = CSV.open(File.join(@dir, 'builds.csv'), 'w+', headers: true)
     @results.each do |result|
       result.convert!
       result.error = result.category = nil
