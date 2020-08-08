@@ -5,7 +5,7 @@ plot_errors <- function(builds, column, filename, label) {
   write.csv(errors, sprintf("tables/%s.csv", filename))
   latex <- round(errors, 2)
   write.table(latex, sprintf("tables/%s.tex", filename),
-    quote=F, sep=" & ", eol=" \\\\\n", col.names=F)
+    quote=F, sep=" & ", eol=" \\\\\n", row.names=F, col.names=F)
   
   pdf(sprintf("figures/%s.pdf", filename), 7, 3.8)
   par(mai=c(0.7, 3, 0, 0.2), mgp=c(2.2, 1, 0))
