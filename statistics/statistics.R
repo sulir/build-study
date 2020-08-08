@@ -7,7 +7,7 @@ setwd(commandArgs(TRUE)[1])
 dir.create("figures", showWarnings=F)
 dir.create("tables", showWarnings=F)
 
-builds <- read.csv("analyzed.csv", stringsAsFactors=F)
+builds <- read.csv("builds.csv", stringsAsFactors=F)
 
 tool_chart(builds)
 tools_present(builds)
