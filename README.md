@@ -17,4 +17,4 @@ To process the results, Ruby and R is required. The necessary R packages can be 
 
 ## Result files
 
-The study is in progress.
+The complete dataset is available at http://doi.org/10.17605/OSF.IO/UMK3W. It contains CSV files with metadata and log files from two study executions (in 2016 and 2020).
