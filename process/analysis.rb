@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 require 'csv'
 require_relative '../experiment/result'
-require_relative 'log'
+require_relative 'ant_log'
+require_relative 'gradle_log'
+require_relative 'maven_log'
 
 class Analysis
   def initialize(dir)
@@ -19,7 +21,7 @@ class Analysis
       if result.status == false
         file_name = File.join(@dir, 'logs', result.name.sub('/', '_') + '.fail')
         log = Log.new(file_name, result.tool)
-        result.error = log.error
+        result.error = log.error_type || 'unknown'
         result.category = @categories[result.error] || 'uncategorized'
       end
       result.write(csv)
@@ -32,6 +34,6 @@ if __FILE__ == $PROGRAM_NAME
   if ARGV.count == 1
     Analysis.new(ARGV[0]).run
   else
-    puts 'Usage: ./report.rb results_dir'
+    puts 'Usage: analysis.rb results_dir'
   end
 end
