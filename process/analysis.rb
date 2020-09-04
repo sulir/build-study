@@ -17,16 +17,30 @@ class Analysis
     csv = CSV.open(File.join(@dir, 'builds.csv'), 'w+', headers: true)
     @results.each do |result|
       result.convert!
-      result.error = result.category = nil
+      result.compiler_message = result.error = result.category = nil
       if result.status == false
         file_name = File.join(@dir, 'logs', result.name.sub('/', '_') + '.fail')
         log = Log.new(file_name, result.tool)
         result.error = log.error_type || 'unknown'
         result.category = @categories[result.error] || 'uncategorized'
+        if result.category == 'Java compilation'
+          result.compiler_message = shorten(log.compiler_message) || 'unknown'
+        end
       end
       result.write(csv)
     end
     csv.close
+  end
+
+  private
+  def shorten(message)
+    if message && message.length > 200
+      packages_omitted = message.gsub(/[a-z.]+\.([A-Z]\w+)/, '...\1')
+      paths_omitted = packages_omitted.gsub(/\/[\w\/-]+\//, '.../')
+      return paths_omitted
+    else
+      return message
+    end
   end
 end
 
