@@ -19,15 +19,15 @@ plot_errors <- function(builds, column, filename, label) {
 error_types <- function(builds, tool) {
   builds <- builds[builds$status %in% F, ]
   filename <- sprintf("types-%s", tolower(tool))
-  plot_errors(builds[builds$tool %in% tool, ], "error", filename, "type")
+  plot_errors(builds[builds$tool %in% tool, ], "error_type", filename, "type")
 }
 
 error_categories <- function(builds) {
   builds <- builds[builds$status %in% F, ]
-  cat(sprintf("types: %d\n", length(unique(builds$error))))
-  cat(sprintf("categories: %d\n", length(unique(builds$category)) - 1))
-  categorized = 1 - (nrow(builds[builds$category == 'uncategorized', ]) / nrow(builds))
+  cat(sprintf("types: %d\n", length(unique(builds$error_type))))
+  cat(sprintf("categories: %d\n", length(unique(builds$error_category)) - 1))
+  categorized = 1 - (nrow(builds[builds$error_category == 'uncategorized', ]) / nrow(builds))
   cat(sprintf("categorized: %s\n", to_percent(categorized)))
 
-  plot_errors(builds, "category", "categories", "category")
+  plot_errors(builds, "error_category", "categories", "category")
 }

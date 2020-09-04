@@ -72,6 +72,6 @@ tool_properties <- function (builds) {
   
   builds <- builds[builds$status %in% F,]
   maven <- builds[builds$tool == 'Maven', ]
-  dep <- maven[maven$category %in% 'dependencies', ]
+  dep <- maven[maven$error_category %in% 'dependencies', ]
   cat(sprintf("\nFailed Maven builds caused by dep.: %s\n", to_percent(nrow(dep) / nrow(maven))))
 }

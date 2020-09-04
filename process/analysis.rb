@@ -17,13 +17,13 @@ class Analysis
     csv = CSV.open(File.join(@dir, 'builds.csv'), 'w+', headers: true)
     @results.each do |result|
       result.convert!
-      result.compiler_message = result.error = result.category = nil
+      result.compiler_message = result.error_type = result.error_category = nil
       if result.status == false
         file_name = File.join(@dir, 'logs', result.name.sub('/', '_') + '.fail')
         log = Log.new(file_name, result.tool)
-        result.error = log.error_type || 'unknown'
-        result.category = @categories[result.error] || 'uncategorized'
-        if result.category == 'Java compilation'
+        result.error_type = log.error_type || 'unknown'
+        result.error_category = @categories[result.error_type] || 'uncategorized'
+        if result.error_category == 'Java compilation'
           result.compiler_message = shorten(log.compiler_message) || 'unknown'
         end
       end
