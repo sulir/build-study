@@ -35,4 +35,4 @@ The dataset is available at http://doi.org/10.17605/OSF.IO/UMK3W. It contains CS
 
 ## Details
 
-More information can be found in our paper "Large-Scale Dataset of Local Java Software Build Results" (link soon).
+More information can be found in our paper [Large-Scale Dataset of Local Java Software Build Results](https://doi.org/10.3390/data5030086).
