@@ -28,7 +28,7 @@ RUN curl https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.8-bin.tar.
 
 RUN gem install \
     agent:0.12.0 \
-    octokit:4.18.0 \
+    octokit:4.21.0 \
     --no-document
 
 EXPOSE 80
