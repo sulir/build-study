@@ -3,7 +3,7 @@ require 'octokit'
 require_relative 'repository'
 
 class Service
-  ACCESS_TOKEN = '20e0b799d236ec0dd76b24f255ee41d3a9d36e24'
+  ACCESS_TOKEN = ENV['GITHUB_TOKEN']
   
   def initialize(log)
     @log = log
