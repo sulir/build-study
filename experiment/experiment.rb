@@ -5,7 +5,6 @@ require 'bundler/setup'
 require 'agent'
 require 'csv'
 require 'fileutils'
-require 'webrick'
 require_relative 'service'
 
 class Experiment
@@ -88,13 +87,5 @@ class Experiment
 end
 
 if __FILE__ == $PROGRAM_NAME
-  if ARGV.include?('-service')
-    server = Thread.new { WEBrick::HTTPServer.new(DocumentRoot: Dir.pwd).start }
-    Experiment.new.run
-    sleep 1
-    `tar -czf build.tar.gz *`
-    server.join
-  else
-    Experiment.new.run
-  end
+  Experiment.new.run
 end
