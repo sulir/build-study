@@ -19,7 +19,7 @@ RUN curl http://tux.rainside.sk/apache/maven/maven-3/3.6.3/binaries/apache-maven
     | tar -xzC /opt && \
     ln -s /opt/apache-maven-*/bin/mvn /usr/bin/
 
-RUN curl http://tux.rainside.sk/apache/ant/binaries/apache-ant-1.10.8-bin.tar.gz \
+RUN curl https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.8-bin.tar.gz \
     | tar -xzC /opt && \
     ln -s /opt/apache-ant-*/bin/ant /usr/bin/ && \
     curl http://tux.rainside.sk/apache/ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz \
