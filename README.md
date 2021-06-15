@@ -6,15 +6,17 @@ This repository contains scripts and other materials about a study of Java softw
 
 To execute build processes, pull the Docker image and run it:
 ```
-docker run -itv /results/directory:/root/build --env-file token.env quay.io/sulir/builds 10000
+docker run -itv /results/dir:/root/build --env-file token.env quay.io/sulir/builds
 ```
-The last argument (10000) represents the number of projects. The file `token.env` should contain a GitHub personal access token:
+The file `token.env` should contain a GitHub personal access token:
 ```
 GITHUB_TOKEN=ghp_...
 ```
 You can [create a token on GitHub](https://github.com/settings/tokens/new). For security reasons, no not select any scopes (access to public repositories is sufficient).
 
-In the specified directory (`/results/directory`), the following files will be created:
+It is possible to specify the number of analyzed projects as the last argument, the default is 10000.
+
+In the specified directory (`/results/dir`), the following files will be created:
 
 * `log.txt` - a log file with the following event types: `LIST` (downloading a list of projects with metadata), `DWNLD` (downloading project's source code), `BUILD` (project building), `ERROR` (error message),
 * `results.csv` - a CSV file with raw (unprocessed) results,
@@ -22,7 +24,7 @@ In the specified directory (`/results/directory`), the following files will be c
 
 To process the results, Ruby and R is required. The necessary R packages can be installed by running `statistics/install-packages.R`. Then execute the result-processing script:
 ```
-./results.sh /results/directory
+./results.sh /results/dir
 ```
 
 The following files will be created:

@@ -32,7 +32,7 @@ class Experiment
   
   def download_all
     service = Service.new(@log)
-    remaining = (ARGV[0] || 10).to_i
+    remaining = (ARGV[0] || 10000).to_i
     while remaining > 0 do
       repo = service.random_repo
       project = nil
