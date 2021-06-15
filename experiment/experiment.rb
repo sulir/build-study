@@ -87,11 +87,9 @@ class Experiment
 end
 
 if __FILE__ == $PROGRAM_NAME
-  if ENV['GITHUB_TOKEN']
-    Experiment.new.run
-  else
-    puts "Please supply a GitHub token via the GITHUB_TOKEN environment variable. See:",
-      "1. https://github.com/settings/tokens/new (do not select any scopes)",
-      "2. https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file"
+  if !ENV['GITHUB_TOKEN']
+    puts "To speed up GitHub querying, you can supply a token via the GITHUB_TOKEN",
+      "environment variable. See: http://github.com/sulir/build-study#execution"
   end
+  Experiment.new.run
 end
