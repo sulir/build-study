@@ -14,9 +14,7 @@ class Service
     @repo_list ||= repo_list.shuffle
     loop do
       repo_name = @repo_list.pop
-      repo = request do
-        @github.repo(repo_name)
-      end
+      repo = request { @github.repo(repo_name) }
       if repo && repo.forks > 0 && !repo.license.nil? && repo.license.name != 'Other'
         return Repository.from_response(repo) 
       end
@@ -39,8 +37,10 @@ class Service
   def request
     begin
       return yield
-    rescue Octokit::TooManyRequests
-      sleep @github.rate_limit.resets_in
+    rescue Octokit::TooManyRequests => error
+      reset_time = error.response_headers['x-ratelimit-reset'].to_i
+      resets_in = [reset_time - Time.now.to_i, 0].max
+      sleep resets_in
       retry
     rescue Octokit::ClientError => error
       @log.puts error, error.backtrace
